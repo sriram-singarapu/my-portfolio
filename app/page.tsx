@@ -5,7 +5,7 @@ import { FaRegMessage } from "react-icons/fa6";
 
 export default function Home() {
   return (
-    <div className="m-8 flex items-center justify-between ">
+    <div className="m-8 flex flex-col-reverse lg:flex-row items-center justify-center ">
       <div className="space-y-7 ml-8">
         <h1 className="font-extrabold text-4xl">Sri Ram Singarapu</h1>
         <h2 className="font-semibold text-xl">
