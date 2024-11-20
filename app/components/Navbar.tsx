@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <div className="w-full h-20 bg-cyan-800 sticky top-0 text-white shadow-md z-50">
+    <div className="w-full h-20 bg-gray-800 sticky top-0 text-white shadow-md z-50">
       <div className="container mx-auto h-full flex justify-between items-center px-4">
         <div className="flex items-center">
           <Image
@@ -19,15 +20,24 @@ export default function Navbar() {
           <Link href="/" className="hover:underline">
             Home
           </Link>
-          <Link href="/about" className="hover:underline">
-            About
-          </Link>
-          <Link href="/services" className="hover:underline">
-            Services
+
+          <Link href="/projects" className="hover:underline">
+            Projects
           </Link>
           <Link href="/contact" className="hover:underline">
             Contact
           </Link>
+        </div>
+        <div className="hidden lg:flex">
+          <a
+            href="https://github.com/sriram-singarapu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-cyan-800 px-4 py-2 rounded flex items-center space-x-2 hover:bg-cyan-700 hover:text-white transition"
+          >
+            <FaGithub />
+            <span>GitHub Profile</span>
+          </a>
         </div>
 
         {/* Hamburger Menu */}
@@ -57,15 +67,20 @@ export default function Navbar() {
             <Link href="/" className="hover:underline w-full">
               Home
             </Link>
-            <Link href="/about" className="hover:underline w-full">
-              About
-            </Link>
-            <Link href="/services" className="hover:underline w-full">
-              Services
+            <Link href="/projects" className="hover:underline">
+              Projects
             </Link>
             <Link href="/contact" className="hover:underline w-full">
               Contact
             </Link>
+            <a
+              href="https://github.com/sriram-singarapu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-cyan-800 px-4 py-2 rounded hover:bg-cyan-700 hover:text-white transition"
+            >
+              GitHub Profile
+            </a>
           </div>
         </div>
       </div>
