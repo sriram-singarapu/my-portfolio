@@ -6,8 +6,8 @@ import { IoIosMail } from "react-icons/io";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-800 text-white py-8 ">
+      <div className="container mx-auto px-8">
         <div className="flex flex-wrap justify-between items-start">
           {/* Personal Branding */}
           <div className="mb-6 w-full md:w-1/3">
