@@ -20,11 +20,9 @@ export default function Skills() {
 
   return (
     <>
-      <div className="m-16">
+      <div className="my-10">
         {/* Heading */}
-        <h2 className="text-3xl font-extrabold  text-center text-gray-800">
-          Tech Stack
-        </h2>
+        <h2 className="text-3xl font-extrabold  text-center">Tech Stack</h2>
         <p className="text-2xl font-semibold m-8">
           I specialize in ReactJS, Node.js, and Next.js, crafting dynamic and
           scalable web applications. With expertise in frontend development,
@@ -33,11 +31,11 @@ export default function Skills() {
         </p>
 
         {/* Skills Grid */}
-        <div className="flex flex-wrap gap-5 justify-center">
+        <div className="flex flex-wrap gap-5 justify-center mx-16">
           {skill.map((skill, index) => (
             <div
               key={index}
-              className="flex items-center border-4 border-gray-800 font-bold p-2 gap-4"
+              className="flex items-center justify-center border-4 border-gray-800 font-bold p-2 gap-4 w-full sm:w-auto"
             >
               <Image src={skill.img} alt={skill.skl} height={50} width={50} />
               <h3 className="font-bold text-xl">{skill.skl}</h3>
