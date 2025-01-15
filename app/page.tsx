@@ -3,10 +3,9 @@ import srphoto from "@/public/photo1.jpg";
 import Link from "next/link";
 import Skills from "./components/skills";
 import { FaRegMessage } from "react-icons/fa6";
-import { Inter, Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
-const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
 export default function Home() {
   return (
