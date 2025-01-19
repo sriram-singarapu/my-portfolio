@@ -28,10 +28,10 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex space-x-6">
+        <div className="hidden lg:flex space-x-24">
           <Link
             href="/"
-            className={`lg:text-l hover:underline ${
+            className={`text-lg lg:text-2xl hover:underline ${
               pathname === "/" ? "font-bold underline" : ""
             }`}
           >
@@ -39,7 +39,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/projects"
-            className={`lg:text-l hover:underline ${
+            className={`text-lg lg:text-2xl hover:underline ${
               pathname === "/projects" ? "font-bold underline" : ""
             }`}
           >
@@ -47,7 +47,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contact"
-            className={`lg:text-l hover:underline ${
+            className={`text-lg lg:text-2xl hover:underline ${
               pathname === "/contact" ? "font-bold underline" : ""
             }`}
           >
@@ -64,7 +64,7 @@ export default function Navbar() {
             className="bg-white text-cyan-800 px-4 py-2 rounded flex items-center space-x-2 hover:bg-cyan-700 hover:text-white transition"
           >
             <FaGithub />
-            <span>GitHub Profile</span>
+            <span className="text-xl">GitHub Profile</span>
           </a>
         </div>
 

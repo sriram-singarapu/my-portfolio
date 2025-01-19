@@ -3,6 +3,7 @@ import srphoto from "@/public/photo1.jpg";
 import Link from "next/link";
 import Skills from "./components/skills";
 import { FaRegMessage } from "react-icons/fa6";
+import { PiReadCvLogo } from "react-icons/pi";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,11 +15,15 @@ export default function Home() {
       <div className="min-h-screen  flex items-center justify-center">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-evenly">
           <div className="space-y-7 ml-8">
-            <h1 className="font-extrabold text-5xl">Sri Ram Singarapu</h1>
-            <h2 className={`font-semibold text-3xl ${inter.className}`}>
+            <h1 className="font-extrabold text-3xl lg:text-5xl">
+              Sri Ram Singarapu
+            </h1>
+            <h2
+              className={`font-semibold text-xl lg:text-3xl ${inter.className}`}
+            >
               Crafting Scalable Solutions, One Line of Code at a Time!.
             </h2>
-            <h3 className="font-bold text-2xl">
+            <h3 className="font-bold text-lg lg:text-2xl">
               – Full Stack Developer | Innovator | Problem Solver
             </h3>
             <div className="flex gap-4">
@@ -35,7 +40,8 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="hover:bg-gray-800 hover:text-white px-4 py-2 rounded border-2 border-gray-700 flex items-center space-x-2 transition"
               >
-                View Resume
+                <span> View Resume</span>
+                <PiReadCvLogo />
               </a>
             </div>
           </div>

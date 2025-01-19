@@ -10,7 +10,7 @@ export default function Skills() {
     { skl: "Tailwind CSS", img: "/skills/TailwindCSS.png" },
     { skl: "Bootstrap", img: "/skills/Bootstrap.png" },
     { skl: "Azure", img: "/skills/Azure.png" },
-    { skl: "MySQL", img: "/skills/MYSQL.png" },
+    { skl: "MySQL", img: "/skills/MySQL.png" },
     { skl: "Flutter", img: "/skills/Flutter.png" },
     { skl: "Git", img: "/skills/Git.png" },
     { skl: "GitHub", img: "/skills/GitHub.png" },
@@ -23,7 +23,7 @@ export default function Skills() {
       <div className="my-10">
         {/* Heading */}
         <h2 className="text-3xl font-extrabold  text-center">Tech Stack</h2>
-        <p className="text-2xl font-semibold m-8">
+        <p className="text-lg lg:text-2xl font-semibold m-8">
           I specialize in ReactJS, Node.js, and Next.js, crafting dynamic and
           scalable web applications. With expertise in frontend development,
           backend systems, and database management, I deliver efficient,
