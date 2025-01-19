@@ -6,7 +6,7 @@ import Projects from "../components/data";
 export default function ProjectsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="sm:text-3xl lg:text-4xl text-center font-bold p-4 bg-cyan-700 mb-4">
+      <div className="text-center text-xl lg:text-3xl font-bold text-green-600 mb-6 bg-green-100 p-3 rounded-md">
         My Projects
       </div>
       {Object.values(Projects).map((project, index) => (

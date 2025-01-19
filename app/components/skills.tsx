@@ -22,8 +22,10 @@ export default function Skills() {
     <>
       <div className="my-10">
         {/* Heading */}
-        <h2 className="text-3xl font-extrabold  text-center">Tech Stack</h2>
-        <p className="text-lg lg:text-2xl font-semibold m-8">
+        <h2 className="text-center text-2xl lg:text-3xl font-bold text-green-600 m-5 bg-green-100 p-3 rounded-md">
+          Tech Stack
+        </h2>
+        <p className="text-lg lg:text-2xl m-8">
           I specialize in ReactJS, Node.js, and Next.js, crafting dynamic and
           scalable web applications. With expertise in frontend development,
           backend systems, and database management, I deliver efficient,

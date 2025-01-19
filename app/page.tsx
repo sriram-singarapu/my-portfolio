@@ -5,6 +5,7 @@ import Skills from "./components/skills";
 import { FaRegMessage } from "react-icons/fa6";
 import { PiReadCvLogo } from "react-icons/pi";
 import { Inter } from "next/font/google";
+import NextJsCarousel from "./components/achievements";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +36,7 @@ export default function Home() {
                 <FaRegMessage />
               </Link>
               <a
-                href="https://drive.google.com/file/d/1esSLzGgMhzF5QmAXfa9DIb-TvwcfLS00/view?usp=sharing"
+                href="https://drive.google.com/file/d/1d44Fx6RBO236rEwKRsBsa_WU4cYrcdY4/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:bg-gray-800 hover:text-white px-4 py-2 rounded border-2 border-gray-700 flex items-center space-x-2 transition"
@@ -50,14 +51,15 @@ export default function Home() {
             <Image
               src={srphoto}
               alt="footer-photo"
-              height={300}
-              width={300}
+              height={400}
+              width={400}
               className="rounded-full aspect-square object-cover"
             />
           </div>
         </div>
       </div>
       <Skills />
+      <NextJsCarousel />
     </>
   );
 }
