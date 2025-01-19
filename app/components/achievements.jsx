@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+// Dynamically import the Carousel component with no server-side rendering
 const Carousel = dynamic(
   () => import("react-responsive-carousel").then((mod) => mod.Carousel),
   { ssr: false }
@@ -11,18 +12,9 @@ const Carousel = dynamic(
 
 const FutureReadyComponent = () => {
   const images = [
-    {
-      src: "/Achivements/sr-ma.png",
-      alt: "Image 1",
-    },
-    {
-      src: "/Achivements/satya-ma.png",
-      alt: "Image 2",
-    },
-    {
-      src: "/Achivements/grp-ma.png",
-      alt: "Image 3",
-    },
+    { src: "/Achivements/sr-ma.png", alt: "Image 1" },
+    { src: "/Achivements/satya-ma.png", alt: "Image 2" },
+    { src: "/Achivements/grp-ma.png", alt: "Image 3" },
   ];
 
   return (
@@ -43,7 +35,15 @@ const FutureReadyComponent = () => {
 
         {/* Right Section: Carousel */}
         <div className="flex-1 w-full md:w-1/2">
-          <Carousel showThumbs={false} autoPlay infiniteLoop>
+          <Carousel
+            showThumbs={false}
+            autoPlay={true}
+            infiniteLoop={true}
+            showStatus={false} // Optional: Hide slide status text
+            showIndicators={true} // Optional: Show indicators
+            interval={3000} // Optional: Slide change interval
+            axis="horizontal" // Explicitly set required axis prop
+          >
             {images.map((image, index) => (
               <div key={index} className="w-full h-64 md:h-80 relative">
                 <Image
