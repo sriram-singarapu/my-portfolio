@@ -85,7 +85,7 @@ const Contact = async () => {
                 <label className="font-semibold block mb-1">Message</label>
                 <textarea
                   name="message"
-                  rows="5"
+                  rows={5}
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                   readOnly
                 ></textarea>
