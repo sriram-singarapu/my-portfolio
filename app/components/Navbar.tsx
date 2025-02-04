@@ -15,14 +15,14 @@ export default function Navbar() {
   return (
     <div className="w-full h-20 bg-gray-800 sticky top-0 text-white shadow-md z-50">
       <div className="container mx-auto h-full flex justify-between items-center px-4">
-        <div className="flex items-center">
+        <div className="m-5">
           <Link href="/">
             <Image
               src="/logo.png"
               alt="logo"
-              width={100}
-              height={100}
-              className="object-contain"
+              width={80}
+              height={80}
+              className="object-contain h-auto w-auto"
             />
           </Link>
         </div>
@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="hidden lg:flex space-x-24">
           <Link
             href="/"
-            className={`text-lg lg:text-2xl hover:underline ${
+            className={`text-lg lg:text-xl hover:underline ${
               pathname === "/" ? "font-bold underline" : ""
             }`}
           >
@@ -39,7 +39,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/projects"
-            className={`text-lg lg:text-2xl hover:underline ${
+            className={`text-lg lg:text-xl hover:underline ${
               pathname === "/projects" ? "font-bold underline" : ""
             }`}
           >
@@ -47,7 +47,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contact"
-            className={`text-lg lg:text-2xl hover:underline ${
+            className={`text-lg lg:text-xl hover:underline ${
               pathname === "/contact" ? "font-bold underline" : ""
             }`}
           >

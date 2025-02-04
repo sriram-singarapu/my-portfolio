@@ -50,6 +50,7 @@ const FutureReadyComponent = () => {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust based on your layout
                   className="object-cover" // Ensures the image covers the entire container
                 />
               </div>

@@ -4,10 +4,8 @@ import Link from "next/link";
 import Skills from "./components/skills";
 import { FaRegMessage } from "react-icons/fa6";
 import { PiReadCvLogo } from "react-icons/pi";
-import { Inter } from "next/font/google";
-import NextJsCarousel from "./components/achievements";
 
-const inter = Inter({ subsets: ["latin"] });
+import NextJsCarousel from "./components/achievements";
 
 export default function Home() {
   return (
@@ -19,12 +17,10 @@ export default function Home() {
             <h1 className="font-extrabold text-3xl lg:text-5xl">
               Sri Ram Singarapu
             </h1>
-            <h2
-              className={`font-semibold text-xl lg:text-3xl ${inter.className}`}
-            >
+            <h2 className="font-semibold text-xl lg:text-3xl">
               Crafting Scalable Solutions, One Line of Code at a Time!.
             </h2>
-            <h3 className="font-bold text-lg lg:text-2xl">
+            <h3 className="font-semibold text-lg lg:text-2xl">
               – Full Stack Developer | Innovator | Problem Solver
             </h3>
             <div className="flex gap-4">
@@ -36,7 +32,7 @@ export default function Home() {
                 <FaRegMessage />
               </Link>
               <a
-                href="https://drive.google.com/file/d/1d44Fx6RBO236rEwKRsBsa_WU4cYrcdY4/view?usp=sharing"
+                href="https://drive.google.com/file/d/1DTWoJcHjwsPIz7ilSSRYwE9soemtB3SK/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:bg-gray-800 hover:text-white px-4 py-2 rounded border-2 border-gray-700 flex items-center space-x-2 transition"

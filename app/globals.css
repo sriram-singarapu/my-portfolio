@@ -4,4 +4,9 @@
 
 body {
   @apply bg-gradient-to-r from-[#A1C4FD] to-[#C2E9FB];
+  font-family: var(--primary-font), sans-serif;
+}
+
+* {
+  font-family: var(--primary-font), sans-serif;
 }
