@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { MdAddCall } from "react-icons/md";
+import Button from "../UI/Button";
 
 const Contact = async () => {
   return (
@@ -20,18 +21,20 @@ const Contact = async () => {
               width={400}
               height={300}
             />
-            <a
+
+            <Button
+              text="sriramsingarapu2@gmail.com"
               href="mailto:sriramsingarapu2@gmail.com"
-              className="w-full bg-gray-800 text-white px-4 py-2 mt-3 rounded flex items-center justify-center gap-2 hover:bg-cyan-700 transition"
-            >
-              <FaEnvelope /> sriramsingarapu2@gmail.com
-            </a>
-            <a
+              icon={<FaEnvelope />}
+              className="w-full  rounded flex items-center justify-center mt-3"
+            />
+            <Button
+              text="+919866521020"
               href="tel:+919866521020"
-              className="w-full bg-gray-800 text-white px-4 py-2 mt-3 rounded flex items-center justify-center gap-2 hover:bg-cyan-700 transition"
-            >
-              <MdAddCall /> +919866521020
-            </a>
+              icon={<MdAddCall />}
+              className="w-full mt-3  rounded flex items-center justify-center"
+            />
+
             <a
               href="https://github.com/sriram-singarapu"
               target="_blank"

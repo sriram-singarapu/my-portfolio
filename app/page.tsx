@@ -1,11 +1,11 @@
 import Image from "next/image";
 import srphoto from "@/public/photo1.jpg";
-import Link from "next/link";
 import Skills from "./components/skills";
 import { FaRegMessage } from "react-icons/fa6";
 import { PiReadCvLogo } from "react-icons/pi";
-
 import NextJsCarousel from "./components/achievements";
+import Education from "./components/Education";
+import Button from "./UI/Button";
 
 export default function Home() {
   return (
@@ -14,23 +14,21 @@ export default function Home() {
       <div className="min-h-screen  flex items-center justify-center">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-evenly">
           <div className="space-y-7 ml-8">
-            <h1 className="font-extrabold text-3xl lg:text-5xl">
+            <h1 className="font-extrabold text-2xl lg:text-4xl">
               Sri Ram Singarapu
             </h1>
-            <h2 className="font-semibold text-xl lg:text-3xl">
+            <h2 className="font-semibold text-xl lg:text-2xl">
               Crafting Scalable Solutions, One Line of Code at a Time!.
             </h2>
-            <h3 className="font-semibold text-lg lg:text-2xl">
+            <h3 className="font-semibold text-md lg:text-xl">
               – Full Stack Developer | Innovator | Problem Solver
             </h3>
             <div className="flex gap-4">
-              <Link
+              <Button
                 href="/contact"
-                className="bg-gray-800 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-cyan-700 transition"
-              >
-                <span>Contact Me</span>
-                <FaRegMessage />
-              </Link>
+                icon={<FaRegMessage />}
+                text="Let's talk"
+              />
               <a
                 href="https://drive.google.com/file/d/1DTWoJcHjwsPIz7ilSSRYwE9soemtB3SK/view?usp=sharing"
                 target="_blank"
@@ -55,6 +53,7 @@ export default function Home() {
         </div>
       </div>
       <Skills />
+      <Education />
       <NextJsCarousel />
     </>
   );

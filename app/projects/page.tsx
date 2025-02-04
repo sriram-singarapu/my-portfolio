@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { GrDomain } from "react-icons/gr";
 import { FaCode } from "react-icons/fa6";
-import Projects from "../components/data";
+import Projects from "../Data/data";
+import Button from "../UI/Button";
 
 export default function ProjectsPage() {
   return (
@@ -15,7 +16,7 @@ export default function ProjectsPage() {
           className="mb-8 p-5 border-4 border-gray-700 rounded-lg"
         >
           {/* Title */}
-          <h1 className="text-xl sm:text-2xl lg:text-4xl font-semibold mb-2 text-center">
+          <h1 className="text-xl sm:text-xl lg:text-2xl font-semibold mb-2 text-center">
             {project.title}
           </h1>
 
@@ -37,22 +38,19 @@ export default function ProjectsPage() {
               {/* Technologies */}
               <div className="mb-4">
                 <div className="flex flex-wrap gap-2">
-                  <p className="font-semibold text-l lg:text-2xl">
+                  <p className="font-semibold text-l lg:text-xl">
                     Tech stack :{" "}
                   </p>
                   {project.tech.map((tech, i) => (
-                    <p
-                      key={i}
-                      className="px-2 py-1 bg-gray-700 text-white rounded text-xs sm:text-sm lg:text-lg"
-                    >
-                      {tech}
+                    <p key={i}>
+                      <Button text={tech} className={"text-sm p-1"} />
                     </p>
                   ))}
                 </div>
               </div>
 
               {/* Info */}
-              <p className="mb-4 text-sm sm:text-xl lg:text-2xl">
+              <p className="mb-4 text-sm sm:text-md lg:text-lg">
                 {project.info}
               </p>
 
@@ -63,9 +61,9 @@ export default function ProjectsPage() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gray-800 text-white px-4 py-2 rounded flex-grow flex items-center justify-center gap-2 hover:bg-cyan-700 transition"
+                    className="bg-gray-800 text-white px-2 py-1 rounded flex-grow flex items-center justify-center gap-2 hover:bg-cyan-700 transition"
                   >
-                    <GrDomain className="text-sm sm:text-lg lg:text-2xl" />
+                    <GrDomain className="text-sm sm:text-lg lg:text-xl" />
                     <p className="font-semibold text-sm sm:text-md lg:text-lg">
                       Live Demo
                     </p>
@@ -76,9 +74,9 @@ export default function ProjectsPage() {
                     href={project.code}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:bg-gray-800 hover:text-white px-4 py-2 rounded border-2 border-gray-700 flex-grow flex items-center justify-center gap-2 transition"
+                    className="hover:bg-gray-800 hover:text-white px-2 py-1 gap-2 rounded border-2 border-gray-700 flex-grow flex items-center justify-center  transition"
                   >
-                    <FaCode className="text-sm sm:text-lg lg:text-2xl" />
+                    <FaCode className="text-sm sm:text-lg lg:text-xl" />
                     <p className="font-bold text-sm sm:text-md lg:text-lg">
                       Code
                     </p>

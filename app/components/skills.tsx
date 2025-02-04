@@ -20,12 +20,12 @@ export default function Skills() {
 
   return (
     <>
-      <div className="my-10">
+      <div className="mb-10">
         {/* Heading */}
-        <h2 className="text-center text-2xl lg:text-3xl font-bold text-green-600 m-5 bg-green-100 p-3 rounded-md">
+        <h2 className="text-center text-xl lg:text-2xl font-bold text-green-600 mx-5 bg-green-100 p-3 rounded-md">
           Tech Stack
         </h2>
-        <p className="text-lg lg:text-2xl m-8">
+        <p className="text-md lg:text-xl m-8">
           I specialize in ReactJS, Node.js, and Next.js, crafting dynamic and
           scalable web applications. With expertise in frontend development,
           backend systems, and database management, I deliver efficient,
@@ -40,7 +40,7 @@ export default function Skills() {
               className="flex items-center justify-center border-4 border-gray-800 font-bold p-2 gap-4 w-full sm:w-auto"
             >
               <Image src={skill.img} alt={skill.skl} height={50} width={50} />
-              <h3 className="font-bold text-xl">{skill.skl}</h3>
+              <h3 className="font-semibold text-xl">{skill.skl}</h3>
             </div>
           ))}
         </div>
