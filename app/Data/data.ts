@@ -1,27 +1,46 @@
 const Projects = {
+  project6: {
+    title: "Hospital Information Management System | BRV Technologies",
+    img: "/projects/hims.png",
+    link: "https://demo.himsapp.ai/",
+
+    tech: [
+      "Next JS",
+      "TypeScript",
+      "Tailwind CSS",
+      "React JS",
+      "Material-ui",
+      "Next Auth JS",
+      "REST API Integration",
+    ],
+    info: "Developed a responsive healthcare platform using React.js and Next.js, leveraging Material UI for a consistent UI, NextAuth.js for secure authentication, and optimizing performance for cross-device compatibility.",
+  },
+  project2: {
+    title: "Interior Design Platform Integration | BRV Technologies",
+    img: "/projects/persft.png",
+    link: "https://demo.persft.brvteck.com/",
+
+    tech: [
+      "Next JS",
+      "TypeScript",
+      "Tailwind CSS",
+      "React JS",
+      "MongoDB",
+      "Material-ui",
+      "Next Auth JS",
+      "REST API Integration",
+    ],
+    info: "Integrated an enterprise-level interior design platform with seamless customization, enabling users to modify designs, receive instant cost analysis, and track projects in real-time. Implemented cart functionality and a scheduler for efficient project management.",
+  },
   project1: {
     title: "Next JS Landing Page site | BRV Technologies",
     img: "/projects/kolval.png",
     link: "https://kolval.com/",
-    code: "https://bitbucket.org/brvteck/kolval-web/src/master/",
+
     tech: ["Next.js", "Tailwind CSS", "React JS", "TypeScript"],
     info: "Developed a highly responsive and SEO-optimized landing page for Kolval, focusing on fast load times and cross-browser compatibility. Leveraged Tailwind CSS for consistent styling and Next.js for server-side rendering to boost performance.",
   },
-  project2: {
-    title: "E-Commerce-Interior design application | BRV Technologies",
-    img: "/projects/persft.png",
-    link: "https://demo.persft.brvteck.com/",
-    code: "https://bitbucket.org/brvteck/persft-ui-web2/src/main/",
-    tech: [
-      "Next JS",
-      "Tailwind CSS",
-      "React JS",
-      "MongoDB",
-      "Next Auth JS",
-      "TypeScript",
-    ],
-    info: "Built a scalable e-commerce platform tailored for interior design, featuring a robust authentication system using NextAuth.js. Integrated MongoDB for efficient data storage and retrieval, ensuring seamless user interactions and enhanced data security.",
-  },
+
   project3: {
     title: "Small scale E-Commerce | BRV Technologies",
     img: "/projects/onemart.png",
