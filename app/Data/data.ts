@@ -1,4 +1,13 @@
-const Projects = {
+type ProjectType = {
+  title: string;
+  img: string;
+  link: string;
+  tech: string[];
+  info: string;
+  code?: string; // Optional property
+};
+
+const Projects: Record<string, ProjectType> = {
   project6: {
     title: "Hospital Information Management System | BRV Technologies",
     img: "/projects/hims.png",
