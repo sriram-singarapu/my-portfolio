@@ -1,9 +1,42 @@
+"use client";
+
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { MdAddCall } from "react-icons/md";
 import Button from "../UI/Button";
 
-const Contact = async () => {
+const Contact = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = {
+      user_name: event.target.user_name.value,
+      user_email: event.target.user_email.value,
+      message: event.target.message.value,
+    };
+
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+      } else {
+        alert(`Error: ${result.message}`);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to send message. Try again later.");
+    }
+  };
+
   return (
     <section id="contact" className="px-6 lg:px-24 py-8  ">
       <h2 className="text-center text-2xl lg:text-3xl font-bold text-green-600 mb-6 bg-green-100 p-3 rounded-md">
@@ -60,7 +93,7 @@ const Contact = async () => {
             <h4 className="text-center text-xl font-semibold mb-4">
               Get in Touch
             </h4>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name */}
               <div>
                 <label className="font-semibold block mb-1">Name</label>
@@ -68,7 +101,6 @@ const Contact = async () => {
                   type="text"
                   name="user_name"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  readOnly
                 />
               </div>
 
@@ -79,7 +111,6 @@ const Contact = async () => {
                   type="email"
                   name="user_email"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  readOnly
                 />
               </div>
 
@@ -90,13 +121,12 @@ const Contact = async () => {
                   name="message"
                   rows={5}
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  readOnly
                 ></textarea>
               </div>
 
               {/* Submit Button */}
               <button
-                type="button"
+                type="submit"
                 className="w-full bg-gray-800 text-white px-4 py-2 mt-3 rounded flex items-center justify-center gap-2 hover:bg-cyan-700 transition"
               >
                 Send
