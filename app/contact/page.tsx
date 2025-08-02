@@ -6,7 +6,7 @@ import { MdAddCall } from "react-icons/md";
 import Button from "../UI/Button";
 
 const Contact = () => {
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     const formData = {

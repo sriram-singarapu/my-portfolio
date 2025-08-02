@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./UI/Navbar";
 import Footer from "./UI/Footer";
-
+import Cursor from "./cursor";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
@@ -28,6 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} font-sans antialiased`}>
+        <Cursor />
+        {/* Full-Screen Gradient Background */}
         <Navbar />
         <main className="md:mx-12">{children}</main>
         <Footer />

@@ -2,11 +2,234 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gradient-to-r from-[#A1C4FD] to-[#C2E9FB];
+@keyframes gradient-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes cursor-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes cursor-ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Keep default cursor, add custom effects around it */
+* {
   font-family: var(--primary-font), sans-serif;
 }
 
-* {
+body {
+  background: linear-gradient(
+    -45deg,
+    #a1c4fd,
+    #c2e9fb,
+    #b8e6ff,
+    #a8d8ff,
+    #9bb5ff
+  );
+  background-size: 400% 400%;
+  animation: gradient-flow 20s ease infinite;
   font-family: var(--primary-font), sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(120, 119, 198, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(161, 196, 253, 0.2) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom visual effects that follow the default cursor */
+.cs-cursor_sm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(
+    circle,
+    rgba(161, 196, 253, 0.8) 0%,
+    rgba(161, 196, 253, 0.4) 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: 0 0 10px rgba(161, 196, 253, 0.5);
+  transition: all 0.3s ease;
+}
+
+.cs-cursor_lg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(161, 196, 253, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 20px rgba(161, 196, 253, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effects for interactive elements - effects revolve around default cursor */
+a:hover ~ .cs-cursor_lg,
+button:hover ~ .cs-cursor_lg,
+[role="button"]:hover ~ .cs-cursor_lg,
+input:hover ~ .cs-cursor_lg,
+textarea:hover ~ .cs-cursor_lg,
+select:hover ~ .cs-cursor_lg {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(161, 196, 253, 0.6);
+  background: radial-gradient(
+    circle,
+    rgba(161, 196, 253, 0.2) 0%,
+    transparent 70%
+  );
+  animation: cursor-pulse 2s infinite;
+  box-shadow: 0 0 30px rgba(161, 196, 253, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+a:hover ~ .cs-cursor_sm,
+button:hover ~ .cs-cursor_sm,
+[role="button"]:hover ~ .cs-cursor_sm,
+input:hover ~ .cs-cursor_sm,
+textarea:hover ~ .cs-cursor_sm,
+select:hover ~ .cs-cursor_sm {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(
+    circle,
+    rgba(161, 196, 253, 1) 0%,
+    rgba(161, 196, 253, 0.6) 100%
+  );
+  box-shadow: 0 0 15px rgba(161, 196, 253, 0.8);
+}
+
+/* Click/Active states - visual feedback around default cursor */
+.cs-cursor_lg.active {
+  animation: cursor-ripple 0.6s ease-out;
+  border-color: rgba(161, 196, 253, 0.8);
+  box-shadow: 0 0 40px rgba(161, 196, 253, 0.6),
+    inset 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.cs-cursor_sm.active {
+  background: radial-gradient(
+    circle,
+    rgba(161, 196, 253, 1) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(161, 196, 253, 1);
+}
+
+/* Text selection states */
+.cs-cursor_lg.text-select {
+  width: 2px;
+  height: 20px;
+  border-radius: 2px;
+  border: none;
+  background: rgba(161, 196, 253, 0.8);
+}
+
+.cs-cursor_sm.text-select {
+  opacity: 0;
+}
+
+/* Loading/waiting states */
+.cs-cursor_lg.loading {
+  border: 2px solid transparent;
+  border-top: 2px solid rgba(161, 196, 253, 1);
+  border-right: 2px solid rgba(161, 196, 253, 0.6);
+  border-bottom: 2px solid rgba(161, 196, 253, 0.3);
+  border-left: 2px solid rgba(161, 196, 253, 0.1);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled elements */
+[disabled]:hover ~ .cs-cursor_lg,
+.disabled:hover ~ .cs-cursor_lg {
+  border-color: rgba(200, 200, 200, 0.5);
+  background: rgba(200, 200, 200, 0.1);
+}
+
+[disabled]:hover ~ .cs-cursor_sm,
+.disabled:hover ~ .cs-cursor_sm {
+  background: rgba(200, 200, 200, 0.8);
+}
+
+/* Hide custom effects on touch devices, keep default cursor */
+@media (hover: none) and (pointer: coarse) {
+  .cs-cursor_sm,
+  .cs-cursor_lg {
+    display: none;
+  }
 }
