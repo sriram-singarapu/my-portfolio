@@ -8,117 +8,139 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-  TimelineOppositeContent,
 } from "@mui/lab";
-import { easeInOut } from "framer-motion";
-import { Typography, Paper, Box } from "@mui/material";
-import { motion } from "framer-motion";
-import { FaBriefcase, FaCode } from "react-icons/fa";
+import { motion, easeInOut } from "framer-motion";
+import { FaGraduationCap, FaUniversity, FaSchool } from "react-icons/fa";
 
-const experiences = [
+const educationData = [
   {
-    title: "Software Engineer",
-    company: "BRV Technologies",
-    location: "Hyderabad",
-    duration: "May 2025 – Present",
-    type: "Full-time",
-    achievements: [
-      "Developed scalable full-stack apps using Next.js, React.js, and Spring Boot",
-      "Built admin dashboard with real-time analytics and access control",
-      "Reduced load times by 40%",
-    ],
+    degree: "Bachelor of Technology (B.Tech)",
+    field: "Electrical and Electronics Engineering",
+    institution: "Christu Jyothi Institute of Technology and Science",
+    duration: "2020 – 2023",
+    grade: "GPA: 7.46",
+    icon: <FaGraduationCap />,
+    color: "blue",
   },
   {
-    title: "Frontend Developer Intern",
-    company: "Kolval",
-    location: "Remote",
-    duration: "Jan 2025 – Apr 2025",
-    type: "Internship",
-    achievements: [
-      "Contributed to responsive UI for blockchain and workforce management platforms",
-      "Enhanced SEO and accessibility",
-    ],
+    degree: "Diploma",
+    field: "Electrical and Electronics Engineering",
+    institution: "Government Polytechnic Yadagirigutta",
+    duration: "2017 – 2020",
+    grade: "Percentage: 77.92%",
+    icon: <FaUniversity />,
+    color: "purple",
+  },
+  {
+    degree: "Secondary School Certificate (SSC)",
+    field: "",
+    institution: "Sri Aurobindo High School",
+    duration: "2016 – 2017",
+    grade: "GPA: 9.8",
+    icon: <FaSchool />,
+    color: "green",
   },
 ];
 
-const iconVariants = {
-  hidden: {
-    scale: 0,
-    rotate: -180,
-  },
+const containerVariants = {
+  hidden: { opacity: 0 },
   visible: {
-    scale: 1,
-    rotate: 0,
+    opacity: 1,
     transition: {
-      duration: 0.5,
-      ease: easeInOut, // ✅ valid easing string
+      duration: 0.6,
+      staggerChildren: 0.3,
     },
   },
 };
 
-const ExperienceTimeline = () => {
+const iconVariants = {
+  hidden: { scale: 0, rotate: -180 },
+  visible: {
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 0.6,
+      ease: easeInOut,
+    },
+  },
+};
+
+export default function Education() {
   return (
-    <Box sx={{ mt: 4 }}>
-      <Timeline position="alternate">
-        {experiences.map((exp, index) => (
+    <motion.div
+      className="mb-16 px-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={containerVariants}
+    >
+      <div className="text-center text-xl lg:text-3xl font-bold text-blue-600 mb-8">
+        <h2>Educational Journey</h2>
+      </div>
+
+      <Timeline
+        sx={{
+          [`& .MuiTimelineItem-root:before`]: {
+            flex: 0,
+            padding: 0,
+          },
+        }}
+      >
+        {educationData.map((edu, index) => (
           <TimelineItem key={index}>
-            <TimelineOppositeContent
-              sx={{ m: "auto 0" }}
-              align="right"
-              variant="body2"
-              color="text.secondary"
-            >
-              {exp.duration}
-            </TimelineOppositeContent>
             <TimelineSeparator>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={iconVariants}
-                viewport={{ once: true }}
-              >
-                <TimelineDot color="primary">
-                  {index % 2 === 0 ? (
-                    <FaBriefcase size={16} />
-                  ) : (
-                    <FaCode size={16} />
-                  )}
-                </TimelineDot>
-              </motion.div>
-              {index !== experiences.length - 1 && <TimelineConnector />}
+              <TimelineDot className={`!bg-${edu.color}-500`}>
+                <motion.div
+                  className="text-white text-xl"
+                  variants={iconVariants}
+                  whileHover={{
+                    rotate: 360,
+                    transition: { duration: 0.6 },
+                  }}
+                >
+                  {React.cloneElement(edu.icon, { className: "text-white" })}
+                </motion.div>
+              </TimelineDot>
+              {index !== educationData.length - 1 && <TimelineConnector />}
             </TimelineSeparator>
-            <TimelineContent sx={{ py: "12px", px: 2 }}>
-              <motion.div
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+
+            <TimelineContent className="!py-2">
+              <div
+                className={`rounded-xl shadow-lg border-l-4 border-${edu.color}-500 p-6 hover:shadow-xl transition-shadow duration-300`}
               >
-                <Paper elevation={3} sx={{ p: 2 }}>
-                  <Typography variant="h6" component="span">
-                    {exp.title}
-                  </Typography>
-                  <Typography color="text.secondary">
-                    {exp.company} – {exp.location}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {exp.type}
-                  </Typography>
-                  <ul>
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i}>
-                        <Typography variant="body2">{achievement}</Typography>
-                      </li>
-                    ))}
-                  </ul>
-                </Paper>
-              </motion.div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-1">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                      <h3 className="text-lg lg:text-xl font-bold text-gray-800">
+                        {edu.degree}
+                      </h3>
+                      <span
+                        className={`text-sm font-semibold px-3 py-1 bg-${edu.color}-100 text-${edu.color}-700 rounded-full`}
+                      >
+                        {edu.duration}
+                      </span>
+                    </div>
+
+                    {edu.field && (
+                      <p className="text-gray-600 font-medium mb-2">
+                        {edu.field}
+                      </p>
+                    )}
+
+                    <p className="text-gray-700 mb-2">{edu.institution}</p>
+
+                    <div
+                      className={`inline-flex items-center px-3 py-1 bg-${edu.color}-50 text-${edu.color}-700 rounded-lg font-semibold`}
+                    >
+                      <span className="text-sm">{edu.grade}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </TimelineContent>
           </TimelineItem>
         ))}
       </Timeline>
-    </Box>
+    </motion.div>
   );
-};
-
-export default ExperienceTimeline;
+}
