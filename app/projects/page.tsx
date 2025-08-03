@@ -41,126 +41,121 @@ const ProjectsPage = () => {
 
   return (
     <div className="min-h-screen py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">All Projects</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <h1 className="text-xl lg:text-3xl font-bold text-green-600 mb-4 bg-green-100 p-4 rounded-lg">
+            All Projects
+          </h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Explore my complete portfolio of web applications and digital
             solutions
           </p>
         </motion.div>
 
-        {/* Filters and Search */}
+        {/* Search & Filter Row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12"
+          className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10"
         >
-          {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  selectedCategory === category
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "bg-transparent text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600"
-                }`}
-              >
-                <Filter size={16} className="inline mr-2" />
-                {category}
-              </motion.button>
-            ))}
+          {/* Filter Dropdown */}
+          <div className="relative w-full md:w-1/3">
+            <Filter
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+              size={18}
+            />
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full appearance-none pl-10 pr-4 py-3 border border-gray-300 rounded-2xl bg-white text-gray-700 outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
           </div>
 
-          {/* Search */}
-          <div className="max-w-md mx-auto relative">
+          {/* Search Input */}
+          <div className="relative w-full md:w-2/3">
             <Search
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
-              size={20}
+              size={18}
             />
             <input
               type="text"
               placeholder="Search projects..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 border rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl bg-white text-gray-800 outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </motion.div>
 
-        {/* Projects Count */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mb-8"
-        >
-          <p className="text-gray-600 dark:text-gray-400">
-            Showing {filteredProjects.length} of {Object.keys(Projects).length}{" "}
-            projects
-          </p>
-        </motion.div>
+        {/* Count */}
+        <p className="text-center text-gray-600 mb-8">
+          Showing {filteredProjects.length} of {Object.keys(Projects).length}{" "}
+          projects
+        </p>
 
-        {/* Projects Grid */}
+        {/* Projects List */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="space-y-10"
         >
           {filteredProjects.map(([projectId, project]) => (
             <motion.div
               key={projectId}
               variants={cardVariants}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="rounded-2xl border shadow hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="flex flex-col md:flex-row gap-6 border border-gray-200 rounded-2xl overflow-hidden shadow-sm bg-white hover:shadow-md transition-all duration-300"
             >
-              {/* Project Image Placeholder */}
-              <div className="relative h-48 bg-gray-100 dark:bg-gray-700 overflow-hidden flex items-center justify-center">
-                <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 opacity-30">
+              {/* Image Placeholder */}
+              <div className="flex items-center justify-center bg-gray-100 h-48 md:h-auto md:w-1/3">
+                <div className="text-6xl font-bold text-blue-600 opacity-30">
                   {project.title.split(" ")[0].charAt(0)}
                 </div>
               </div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 line-clamp-2">
-                  {project.title.split(" | ")[0]}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
-                  {project.info}
-                </p>
+              {/* Content */}
+              <div className="p-6 flex flex-col justify-between md:w-2/3">
+                <div>
+                  <h3 className="text-xl font-bold mb-2 line-clamp-2">
+                    {project.title.split(" | ")[0]}
+                  </h3>
+                  <p className="text-gray-700 text-sm mb-4 line-clamp-3">
+                    {project.info}
+                  </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.slice(0, 4).map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-md font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.tech.length > 4 && (
-                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium">
-                      +{project.tech.length - 4} more
-                    </span>
-                  )}
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.slice(0, 4).map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-md font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.tech.length > 4 && (
+                      <span className="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-md font-medium">
+                        +{project.tech.length - 4} more
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                {/* External Links */}
-                <div className="flex gap-3 mt-4">
+                {/* Links */}
+                <div className="flex gap-4 text-sm mt-2">
                   <a
                     href={project.link}
                     target="_blank"
@@ -196,7 +191,7 @@ const ProjectsPage = () => {
           >
             <div className="text-6xl mb-4">🔍</div>
             <h3 className="text-2xl font-bold mb-2">No projects found</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600">
               Try adjusting your search or filter criteria
             </p>
           </motion.div>

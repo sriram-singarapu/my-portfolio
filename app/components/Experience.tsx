@@ -77,7 +77,7 @@ const ExperienceTimeline = () => {
     >
       {/* Heading */}
       <div className="text-center text-xl lg:text-3xl font-bold text-green-600 mb-8 bg-green-100 p-4 rounded-lg mx-5">
-        <h2>Tech Stack & Expertise</h2>
+        <h2>Professional Journey</h2>
       </div>
 
       {/* Timeline */}

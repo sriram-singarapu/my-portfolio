@@ -74,7 +74,7 @@ export default function Education() {
       viewport={{ once: true, margin: "-50px" }}
       variants={containerVariants}
     >
-      <div className="text-center text-xl lg:text-3xl font-bold text-blue-600 mb-8">
+      <div className="text-center text-xl lg:text-3xl font-bold text-green-600 mb-8 bg-green-100 p-4 rounded-lg mx-5">
         <h2>Educational Journey</h2>
       </div>
 
