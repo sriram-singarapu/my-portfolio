@@ -10,7 +10,7 @@ export default function Skills() {
     { skl: "Next JS", img: "/skills/Next.js.png" },
     { skl: "JavaScript", img: "/skills/js.png" },
     { skl: "Spring Boot", img: "/skills/Spring.png" },
-    { skl: "TypeScript", img: "/skills/Typescript.png" },
+    { skl: "TypeScript", img: "/skills/TypeScript.png" },
 
     { skl: "Node JS", img: "/skills/Node.js.png" },
     { skl: "Express JS", img: "/skills/Express.png" },

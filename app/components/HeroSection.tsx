@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import srphoto from "@/public/photo1.jpg";
 
 const HeroSection = () => {
     const containerVariants = {
@@ -154,7 +153,7 @@ const HeroSection = () => {
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full blur-3xl opacity-30 animate-pulse" />
                             <Image
-                                src={srphoto}
+                                src="/photo1.jpg"
                                 alt="Sri Ram Singarapu"
                                 width={400}
                                 height={400}

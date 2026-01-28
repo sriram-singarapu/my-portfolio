@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import srphoto from "@/public/photo1.jpg";
 import { FaGithub, FaLinkedin, FaTwitter, FaHeart } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { HiArrowUp } from "react-icons/hi";
@@ -59,7 +58,7 @@ export default function Footer() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src={srphoto}
+                  src="/photo1.jpg"
                   alt="Sri Ram Singarapu"
                   height={80}
                   width={80}
