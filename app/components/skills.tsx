@@ -4,20 +4,28 @@ import { motion, easeOut } from "framer-motion";
 
 export default function Skills() {
   const allSkills = [
+    { skl: "Java", img: "/skills/Java.png" },
+    { skl: "Nest JS", img: "/skills/Nest.js.png" },
     { skl: "React JS", img: "/skills/React.png" },
     { skl: "Next JS", img: "/skills/Next.js.png" },
     { skl: "JavaScript", img: "/skills/js.png" },
+    { skl: "Spring Boot", img: "/skills/spring.png" },
+    { skl: "TypeScript", img: "/skills/typescript.png" },
+
+    { skl: "Node JS", img: "/skills/Node.js.png" },
+    { skl: "Express JS", img: "/skills/Express.png" },
+    { skl: "MySQL", img: "/skills/MySQL.png" },
+    { skl: "MongoDB", img: "/skills/MongoDB.png" },
+    { skl: "Linux", img: "/skills/Linux.png" },
     { skl: "HTML5", img: "/skills/HTML5.png" },
     { skl: "Tailwind CSS", img: "/skills/TailwindCSS.png" },
     { skl: "Bootstrap", img: "/skills/Bootstrap.png" },
-    { skl: "Node JS", img: "/skills/Node.js.png" },
-    { skl: "MySQL", img: "/skills/MySQL.png" },
     { skl: "Azure", img: "/skills/Azure.png" },
     { skl: "Git", img: "/skills/Git.png" },
-    { skl: "GitHub", img: "/skills/GitHub.png" },
-    { skl: "BitBucket", img: "/skills/BitBucket.png" },
+    // { skl: "GitHub", img: "/skills/GitHub.png" },
+    // { skl: "BitBucket", img: "/skills/BitBucket.png" },
     { skl: "Jira", img: "/skills/Jira.png" },
-    { skl: "Flutter", img: "/skills/Flutter.png" },
+    // { skl: "Flutter", img: "/skills/Flutter.png" },
   ];
 
   const containerVariants = {
@@ -61,7 +69,7 @@ export default function Skills() {
       {/* Heading */}
       <motion.div variants={headerVariants}>
         <motion.h2
-          className="text-center text-xl lg:text-3xl font-bold text-green-600 mx-5 bg-green-100 p-4 rounded-lg mb-6"
+          className="text-center text-xl lg:text-3xl font-bold text-indigo-600 mx-5 bg-indigo-100 p-4 rounded-lg mb-6"
           whileHover={{
             scale: 1.02,
             transition: { duration: 0.2 },
@@ -89,7 +97,7 @@ export default function Skills() {
         {allSkills.map((skill, index) => (
           <motion.div
             key={index}
-            className="flex items-center justify-center border-2 border-gray-300 hover:border-green-500 font-bold p-4 gap-3 bg-gray-50 hover:bg-green-50 rounded-lg transition-colors duration-300 min-w-[160px]"
+            className="flex items-center justify-center border-2 border-gray-300 hover:border-indigo-500 font-bold p-4 gap-3 bg-gray-50 hover:bg-indigo-50 rounded-lg transition-colors duration-300 min-w-[160px]"
             variants={skillVariants}
             whileHover={{
               scale: 1.05,

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { motion, easeOut } from "framer-motion";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import { Projects } from "../Data/data";
 
 const ProjectsHomeSection = () => {
@@ -22,15 +22,15 @@ const ProjectsHomeSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: easeOut },
+      transition: { duration: 0.6, ease: "easeOut" as const },
     },
   };
 
   const navigateToProjects = () => router.push("/projects");
 
   return (
-    <section className="pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,11 +39,11 @@ const ProjectsHomeSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-center text-xl lg:text-3xl font-bold text-green-600 mb-8 bg-green-100 p-4 rounded-lg mx-5">
-            Featured Projects
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl max-w-3xl mx-auto">
-            Showcasing innovative solutions built with modern technologies
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Production-grade applications built with modern technologies and best practices
           </p>
         </motion.div>
 
@@ -60,18 +60,18 @@ const ProjectsHomeSection = () => {
               key={projectId}
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-[#ffffff] rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer group"
+              className="glass-effect rounded-2xl overflow-hidden cursor-pointer group hover:border-blue-600/50 hover:shadow-xl transition-all duration-300"
               onClick={navigateToProjects}
             >
               {/* Project Image Placeholder */}
-              <div className="relative h-48 overflow-hidden bg-[#f0f0f0]">
+              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl font-bold opacity-30 text-gray-500">
+                  <div className="text-8xl font-bold text-gray-300">
                     {project.title.split(" ")[0].charAt(0)}
                   </div>
                 </div>
                 {project.category && (
-                  <div className="absolute top-4 left-4 bg-[#ffffffcc] px-3 py-1 rounded-full text-xs font-semibold text-gray-700">
+                  <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/90 backdrop-blur-sm text-blue-600 border border-blue-200">
                     {project.category}
                   </div>
                 )}
@@ -82,51 +82,38 @@ const ProjectsHomeSection = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="p-2 bg-[#ffffffcc] rounded-full"
+                    className="p-2.5 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors border border-blue-200"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <ExternalLink size={16} />
+                    <ExternalLink size={18} className="text-blue-600" />
                   </motion.a>
-                  {project.code && (
-                    <motion.a
-                      href={project.code}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-2 bg-[#ffffffcc] rounded-full"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Github size={16} />
-                    </motion.a>
-                  )}
                 </div>
               </div>
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold mb-3 line-clamp-2 text-gray-900 group-hover:text-blue-600 transition-colors">
                   {project.title.split(" | ")[0]}
                 </h3>
-                <p className="text-sm mb-4 line-clamp-3 text-gray-700">
+                <p className="text-sm mb-4 line-clamp-3 text-gray-600 leading-relaxed">
                   {project.info}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.slice(0, 3).map((tech, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-blue-100 text-xs rounded-md font-medium text-blue-800"
+                      className="px-3 py-1 bg-blue-100 text-xs rounded-lg font-medium text-blue-700 border border-blue-200"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-200 text-xs rounded-md font-medium text-gray-800">
+                    <span className="px-3 py-1 bg-gray-100 text-xs rounded-lg font-medium text-gray-600 border border-gray-200">
                       +{project.tech.length - 3} more
                     </span>
                   )}
                 </div>
-                <div className="flex items-center text-sm font-semibold group-hover:text-blue-700 transition-colors">
+                <div className="flex items-center text-sm font-semibold text-blue-600 group-hover:text-blue-700 transition-colors">
                   View Details
                   <ArrowRight
                     size={16}
@@ -148,9 +135,9 @@ const ProjectsHomeSection = () => {
         >
           <motion.button
             onClick={navigateToProjects}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
           >
             View All Projects
             <ArrowRight size={20} className="ml-2" />

@@ -4,13 +4,78 @@ export type ProjectType = {
   link: string;
   tech: string[];
   info: string;
-  code?: string; // Optional property
+  code?: string;
   category?: string;
   features?: string[];
 };
 
 export const Projects: Record<string, ProjectType> = {
-  project6: {
+  project1: {
+    title: "Enterprise Interior Design & Project Management System",
+    img: "/projects/persft.png",
+    link: "https://demo.persft.brvteck.com/",
+    category: "Enterprise",
+    tech: [
+      "Next.js",
+      "NestJS",
+      "MySQL",
+      "Razorpay",
+      "TypeScript",
+      "REST APIs",
+      "Role-Based Access Control",
+    ],
+    info: "Large-scale enterprise platform for interior design and project management used across admin, vendor, and customer roles. Built admin dashboards and microservices for project tracking, task scheduling, work orders, and payment flows.",
+    features: [
+      "Next.js admin dashboards for managing users, vendors, projects, workflows, and approvals",
+      "NestJS microservices for project tracking, task scheduling, work orders, and product mapping",
+      "Razorpay payment integration with booking, partial payments, and order lifecycle handling",
+      "Secure REST APIs with role-based access control and data isolation",
+      "Production deployment support with bug fixes and feature enhancements in Agile environment",
+    ],
+  },
+  project2: {
+    title: "Full-Stack E-Commerce Application",
+    img: "/projects/ecommerce.png",
+    link: "#",
+    category: "E-Commerce",
+    tech: [
+      "Next.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "TypeScript",
+    ],
+    info: "Complete e-commerce platform with admin, vendor, and customer workflows. Designed MongoDB schemas and implemented JWT-based authentication with protected routes and role-based dashboards.",
+    features: [
+      "Admin, vendor, and customer workflow management",
+      "MongoDB schemas for products, users, orders, vendors, and inventory",
+      "JWT-based authentication with protected routes",
+      "Role-based dashboards for different user types",
+      "Responsive UI with scalable backend order-processing logic",
+    ],
+  },
+  project3: {
+    title: "Garage Management Application",
+    img: "/projects/garage.png",
+    link: "#",
+    category: "Business",
+    tech: [
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "REST APIs",
+      "JPA/Hibernate",
+    ],
+    info: "Backend system for vehicle and service management. Developed REST APIs for vehicle tracking, service scheduling, job orders, and billing with relational database design.",
+    features: [
+      "REST APIs for vehicle, service, job order, and billing management",
+      "Relational database design with MySQL",
+      "Business logic for service workflows",
+      "JPA/Hibernate for data persistence",
+    ],
+  },
+  project4: {
     title: "Hospital Information Management System | BRV Technologies",
     img: "/projects/hims.png",
     link: "https://demo.himsapp.ai/",
@@ -31,30 +96,7 @@ export const Projects: Record<string, ProjectType> = {
       "Improved accessibility and responsiveness using Material UI and usability testing",
     ],
   },
-  project2: {
-    title: "Interior Design Platform Integration | BRV Technologies",
-    img: "/projects/persft.png",
-    link: "https://demo.persft.brvteck.com/",
-    category: "Enterprise",
-    tech: [
-      "Next JS",
-      "TypeScript",
-      "Tailwind CSS",
-      "React JS",
-      "MongoDB",
-      "Material-ui",
-      "Next Auth JS",
-      "REST API Integration",
-    ],
-    info: "Integrated an enterprise-level interior design platform with seamless customization, enabling users to modify designs, receive instant cost analysis, and track projects in real-time. Implemented cart functionality and a scheduler for efficient project management.",
-    features: [
-      "Integrated third-party SDK for real-time interior design customization features",
-      "Implemented secure payment gateway integration using Razorpay for transaction processing",
-      "Developed administrative dashboard for project management and resource allocation",
-      "Designed modular architecture enabling scalable feature additions and efficient API consumption",
-    ],
-  },
-  project1: {
+  project5: {
     title: "Next JS Landing Page site | BRV Technologies",
     img: "/projects/kolval.png",
     link: "https://kolval.com/",
@@ -67,7 +109,7 @@ export const Projects: Record<string, ProjectType> = {
       "Responsive design with Tailwind CSS",
     ],
   },
-  project3: {
+  project6: {
     title: "Small scale E-Commerce | BRV Technologies",
     img: "/projects/onemart.png",
     link: "https://sriram-onemart-brvteck.vercel.app/",
@@ -81,7 +123,7 @@ export const Projects: Record<string, ProjectType> = {
       "Responsive design and user-friendly interface",
     ],
   },
-  project4: {
+  project7: {
     title: "Food Order App",
     link: "https://sriram-singarapu.github.io/react-restaurant/",
     img: "/projects/foodorder.png",
@@ -95,7 +137,7 @@ export const Projects: Record<string, ProjectType> = {
       "Dynamic overlays for seamless user interaction",
     ],
   },
-  project5: {
+  project8: {
     title: "React ToDo",
     link: "https://sriram-singarapu.github.io/react-todo/",
     img: "/projects/todo.png",
@@ -113,10 +155,10 @@ export const Projects: Record<string, ProjectType> = {
 
 export const categories = [
   "All",
-  "Healthcare",
   "Enterprise",
-  "Business",
+  "Healthcare",
   "E-Commerce",
+  "Business",
   "Food & Beverage",
   "Productivity",
 ];

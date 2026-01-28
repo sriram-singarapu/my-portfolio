@@ -49,7 +49,7 @@ const ProjectsPage = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h1 className="text-xl lg:text-3xl font-bold text-green-600 mb-4 bg-green-100 p-4 rounded-lg">
+          <h1 className="text-xl lg:text-3xl font-bold text-blue-600 mb-4 bg-blue-100 p-4 rounded-lg">
             All Projects
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">

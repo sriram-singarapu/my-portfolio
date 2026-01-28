@@ -1,158 +1,132 @@
 "use client";
-
 import React from "react";
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-} from "@mui/lab";
-import { easeOut, motion } from "framer-motion";
-import { FaBriefcase, FaCode } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaBriefcase, FaCheckCircle } from "react-icons/fa";
 
-const experiences = [
-  {
-    title: "Software Engineer",
-    company: "BRV Technologies",
-    location: "Hyderabad",
-    duration: "May 2025 – Present",
-    type: "Full-time",
-    achievements: [
-      "Developed scalable full-stack apps using Next.js, React.js, and Spring Boot",
-      "Built admin dashboard with real-time analytics and access control",
-      "Reduced load times by 40% with performance optimizations",
-    ],
-    icon: <FaBriefcase />,
-    color: "blue",
-  },
-  {
-    title: "Developer Intern",
-    company: "BRV Technologies",
-    location: "Hyderabad",
-    duration: "Aug 2024 – Apr 2025",
-    type: "Internship",
-    achievements: [
-      "Built responsive UIs with React, Next.js, Tailwind CSS",
-      "Integrated RESTful APIs for dynamic content handling",
-      "Collaborated with backend teams and used Git-based workflows",
-    ],
-    icon: <FaCode />,
-    color: "green",
-  },
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      staggerChildren: 0.3,
+const Experience = () => {
+  const experience = [
+    {
+      company: "BRV Technologies",
+      location: "Hyderabad",
+      role: "Software Engineer",
+      duration: "Aug 2024 – Present",
+      type: "Intern → Full-Time",
+      achievements: [
+        "Contributed to the design and development of a large-scale enterprise interior design & project management platform used across admin, vendor, and customer roles",
+        "Built and maintained Next.js admin dashboards for managing users, vendors, projects, workflows, configurations, and approvals",
+        "Developed NestJS microservices for project tracking, task scheduling, work orders, product mapping, and internal operational workflows",
+        "Implemented Razorpay payment flows including booking, partial payments, order lifecycle handling, and payment verification",
+        "Designed secure REST APIs with role-based access control and data isolation across multiple user types",
+        "Supported production deployments, bug fixes, and feature enhancements in an Agile environment",
+      ],
     },
-  },
-};
+  ];
 
-const iconVariants = {
-  hidden: { scale: 0, rotate: -180 },
-  visible: {
-    scale: 1,
-    rotate: 0,
-    transition: {
-      duration: 0.6,
-      ease: easeOut,
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2,
+      },
     },
-  },
-};
+  };
 
-const ExperienceTimeline = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" as const },
+    },
+  };
+
   return (
-    <motion.div
-      className="mb-16 px-4"
+    <motion.section
+      className="py-20 px-6 lg:px-8 relative z-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       variants={containerVariants}
     >
-      {/* Heading */}
-      <div className="text-center text-xl lg:text-3xl font-bold text-green-600 mb-8 bg-green-100 p-4 rounded-lg mx-5">
-        <h2>Professional Journey</h2>
-      </div>
+      <div className="container mx-auto">
+        {/* Header */}
+        <motion.div className="text-center mb-16" variants={itemVariants}>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Professional <span className="gradient-text">Experience</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Building production-grade solutions and driving technical excellence
+          </p>
+        </motion.div>
 
-      {/* Timeline */}
-      <Timeline
-        sx={{
-          [`& .MuiTimelineItem-root:before`]: {
-            flex: 0,
-            padding: 0,
-          },
-        }}
-      >
-        {experiences.map((exp, index) => (
-          <TimelineItem key={index}>
-            <TimelineSeparator>
-              <TimelineDot className={`!bg-${exp.color}-500`}>
-                <motion.div
-                  className="text-white text-xl"
-                  variants={iconVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  whileHover={{
-                    rotate: 360,
-                    transition: { duration: 0.6 },
-                  }}
-                >
-                  {React.cloneElement(exp.icon, { className: "text-white" })}
-                </motion.div>
-              </TimelineDot>
-              {index !== experiences.length - 1 && <TimelineConnector />}
-            </TimelineSeparator>
+        {/* Experience Timeline */}
+        <div className="max-w-5xl mx-auto">
+          {experience.map((exp, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="relative"
+            >
+              {/* Timeline Line */}
+              <div className="absolute left-8 top-16 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-cyan-600 hidden md:block" />
 
-            <TimelineContent className="!py-2">
-              <div
-                className={`rounded-xl shadow-lg border-l-4 border-${exp.color}-500 p-6 hover:shadow-xl transition-shadow duration-300`}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-1">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                      <h3 className="text-lg lg:text-xl font-bold text-gray-800">
-                        {exp.title}
+              {/* Experience Card */}
+              <div className="glass-effect rounded-2xl p-8 hover:border-blue-600/50 hover:shadow-xl transition-all duration-300 relative">
+                {/* Icon */}
+                <div className="absolute left-0 top-8 -ml-4 hidden md:block z-10">
+                  <div className="p-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full shadow-lg hover:shadow-glow transition-all duration-300">
+                    <FaBriefcase className="text-2xl text-white" />
+                  </div>
+                  <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-20" />
+                </div>
+
+                {/* Content */}
+                <div className="md:ml-16">
+                  {/* Header */}
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                        {exp.role}
                       </h3>
-                      <span
-                        className={`text-sm font-semibold px-3 py-1 bg-${exp.color}-100 text-${exp.color}-700 rounded-full`}
-                      >
+                      <p className="text-xl text-blue-600 font-semibold mb-2">
+                        {exp.company}
+                      </p>
+                      <p className="text-gray-600">{exp.location}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-lg font-semibold text-sm mb-2">
                         {exp.duration}
                       </span>
+                      <p className="text-sm text-gray-600">{exp.type}</p>
                     </div>
+                  </div>
 
-                    <p className="text-gray-600 font-medium mb-2">
-                      {exp.company} – {exp.location}
-                    </p>
-
-                    <div
-                      className={`inline-flex items-center px-3 py-1 bg-${exp.color}-50 text-${exp.color}-700 rounded-lg font-semibold mb-3`}
-                    >
-                      <span className="text-sm">{exp.type}</span>
-                    </div>
-
-                    <ul className="list-disc pl-5 space-y-1">
-                      {exp.achievements.map((achieve, i) => (
-                        <li key={i} className="text-sm text-gray-700">
-                          {achieve}
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Achievements */}
+                  <div className="space-y-3">
+                    {exp.achievements.map((achievement, i) => (
+                      <motion.div
+                        key={i}
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                      >
+                        <FaCheckCircle className="text-blue-600 mt-1 flex-shrink-0" />
+                        <p className="text-gray-700 leading-relaxed">{achievement}</p>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
-    </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.section>
   );
 };
 
-export default ExperienceTimeline;
+export default Experience;
